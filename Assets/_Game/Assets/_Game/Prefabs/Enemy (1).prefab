@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 1718100086930991691}
   - component: {fileID: 642175128447226117}
   - component: {fileID: 2253395605706435870}
+  - component: {fileID: -8251237315535421460}
   m_Layer: 0
   m_Name: Enemy (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,6 +50,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.15
+  sprites:
+  - {fileID: 1718100087177451752}
+  - {fileID: 1718100087335253833}
 --- !u!61 &642175128447226117
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59,7 +63,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.018047392, y: 0.027071059}
@@ -95,6 +99,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-8251237315535421460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718100086930991690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f85ec2a7552e9c4aa874503707c0666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1718100087177451752
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,8 +265,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1889858523
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4422d19070a11e04081a70984e710c5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
