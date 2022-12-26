@@ -4,11 +4,33 @@ using UnityEngine;
 
 public class Destroyer : MonoBehaviour
 {
-   private void OnTriggerEnter2D(Collider2D target) 
-   {
-        if(target.gameObject.CompareTag("Enemy"))
+
+    private GameController gameController;
+    private UIController uiController;
+
+    private void Start()
+    {
+        gameController = FindObjectOfType<GameController>();
+        uiController = FindObjectOfType<UIController>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D target)
+    {
+        if (target.gameObject.CompareTag("Enemy"))
         {
+            gameController.enemyCount++;
+
+            if (gameController.enemyCount < 5)
+            {
+                uiController.imageLifes[gameController.enemyCount - 1].gameObject.SetActive(false);
+            }
+            else
+            {         
+                uiController.imageLifes[gameController.enemyCount - 1].gameObject.SetActive(false);
+                Debug.Log("game over");
+            }
             Destroy(target.gameObject);
+
         }
-   }
+    }
 }
