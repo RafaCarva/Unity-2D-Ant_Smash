@@ -134,10 +134,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a250ac02ba4f7d4a8b58f85bd384a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.15
+  speed: 0.5
   sprites:
   - {fileID: 8451831303414525057}
   - {fileID: 7661613406305680591}
+  score: 35
 --- !u!61 &2389148549663233116
 BoxCollider2D:
   m_ObjectHideFlags: 0
