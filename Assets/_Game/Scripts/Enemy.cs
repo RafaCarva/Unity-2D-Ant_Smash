@@ -10,11 +10,13 @@ public class Enemy : MonoBehaviour
     private Animator myAnimator;
 
     [SerializeField] private GameObject[] sprites;
+    private GameController gameController;
 
     // Start is called before the first frame update
     void Start()
     {
         myAnimator = GetComponent<Animator>();
+        gameController = FindObjectOfType<GameController>();
         sprites[0] = this.transform.GetChild(0).gameObject; // Esse é o filho que tem o sprite da formiga viva.
         sprites[1] = this.transform.GetChild(1).gameObject;
     }
@@ -43,5 +45,17 @@ public class Enemy : MonoBehaviour
         sprites[1].gameObject.SetActive(true);
         Destroy(this.gameObject, Random.Range(2.5f, 5f));
     }
+
+    public void PlayAudio(bool isDead)
+    {
+        if(isDead)
+        {
+         AudioSource audioSource = this.gameObject.GetComponent<AudioSource>();
+         audioSource.clip = gameController.audioEnemies[Random.Range(0,gameController.audioEnemies.Length)];
+         audioSource.Play();   
+        }
+        
+    }
+
 
 }

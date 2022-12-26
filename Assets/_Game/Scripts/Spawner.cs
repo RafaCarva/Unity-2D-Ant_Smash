@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    private float minX, maxX, nextSpawn ;
+    private float minX, maxX, nextSpawn;
     [SerializeField] private float minDistance, maxDistance, spawnTime;
     [SerializeField] private GameObject[] enemies;
 
@@ -25,6 +25,7 @@ public class Spawner : MonoBehaviour
     {
         // Pegar a largura da tela
         Vector3 bounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.safeArea.width, 0f, 0f));
+
         minX = -bounds.x + minDistance;
         maxX = bounds.x + maxDistance;
     }
