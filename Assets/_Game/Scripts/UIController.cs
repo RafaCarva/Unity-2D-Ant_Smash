@@ -7,30 +7,30 @@ using TMPro;
 public class UIController : MonoBehaviour
 {
 
-    public TMP_Text txtScore;
+    public TMP_Text txtScore, txtHighscore, txtFinalScore;
     public Image[] imageLifes;
 
-    public GameObject panelGame, panelPause, allLifes, panelMainMenu;
+    [SerializeField] private GameObject panelGame, panelPause, allLifes, panelMainMenu;
+    [SerializeField] public GameObject panelGameOver;
     private GameController gameController;
-
-
 
     // Start is called before the first frame update
     void Start()
     {
+        Initialize();
+    }
+
+    private void Initialize()
+    {
         panelMainMenu.gameObject.SetActive(true);
         panelGame.gameObject.SetActive(false);
+        panelGameOver.gameObject.SetActive(false);
         panelPause.gameObject.SetActive(false);
         gameController = FindObjectOfType<GameController>();
+        txtHighscore.text = "Highscore: " + gameController.highscore.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void UpdateScore (int score)
+    public void UpdateScore(int score)
     {
         txtScore.text = score.ToString();
     }
@@ -50,14 +50,15 @@ public class UIController : MonoBehaviour
         gameController.Restart();
     }
 
-public void ButtonRestart()
+    public void ButtonRestart()
     {
         Time.timeScale = 1f;
         panelGame.gameObject.SetActive(true);
         panelPause.gameObject.SetActive(false);
+        panelGameOver.gameObject.SetActive(false);
         gameController.Restart();
 
-        foreach(Transform child in allLifes.transform)
+        foreach (Transform child in allLifes.transform)
         {
             child.gameObject.SetActive(true);
         }
@@ -67,8 +68,11 @@ public void ButtonRestart()
     public void ButtonBackMainMenu()
     {
         Time.timeScale = 1f;
+        panelGameOver.gameObject.SetActive(false);
         panelGame.gameObject.SetActive(false);
         panelPause.gameObject.SetActive(false);
+        panelMainMenu.gameObject.SetActive(true);
+        gameController.BackMainMenu();
     }
 
     public void ButtonStartGame()
